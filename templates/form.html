@@ -8,7 +8,7 @@
    <p >Age:</p>
     <p><input class="line1"  type="range" value="0" min="0" max="150" oninput="age_range_out.value = this.value" name="age"> <output name="age_range_out" id="age_range_out">0</output></p>
     <p >Sample origin:</p>
-    <p c>
+    <p >
         <select   name="sample_origin">
             <option value="1" >BPTB</option>
             <option value="2" >LIV</option>
@@ -31,7 +31,17 @@
     <p >REG1A:</p>
     <p ><input class="line2"  type="number" name="REG1A" min="-1"  step="any" required></p>
 </div>
+
+    <div class="line3">
+        <p>plasma CA19: Blood plasma levels of CA 19–9 monoclonal antibody that is often elevated in patients with pancreatic cancer.
+          <br>Only assessed in 350 patients (one goal of the study was to compare various CA 19-9 cutpoints from a blood sample to the model developed using urinary samples). </p>
+        <p>creatitine: Urinary biomarker of kidney function</p>
+        <p>LYVE1: Urinary levels of Lymphatic vessel endothelial hyaluronan receptor 1, a protein that may play a role in tumor metastasis</p>
+        <p>REG1B: Urinary levels of a protein that may be associated with pancreas regeneration.</p>
+        <p>TFF1: Urinary levels of Trefoil Factor 1, which may be related to regeneration and repair of the urinary tract</p>
+        <p>REG1A: Urinary levels of a protein that may be associated with pancreas regeneration. Only assessed in 306 patients (one goal of the study was to assess REG1B vs REG1A)</p>
     <p><input type="submit" class="submit_butt"  value="submit"></p>
+    </div>
 </form>
 <row style = "width: 100%; display: flex; justify-content: center;">
 <table class="table">
@@ -45,7 +55,7 @@
     {% endfor %}
 </table>
 </row>
-    <p><a href="{{ url_for('downloadFile') }}">Pobierz dane</a></p>
+    <p><a href="{{ url_for('downloadFile') }}">Download data sheet</a></p>
 
 
 {% endblock %}

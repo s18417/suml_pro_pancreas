@@ -23,8 +23,12 @@ tr:nth-child(even) {background-color:#f2f2f2; }
     background-color: #4CAF50;
     margin-top: 50px;
     margin-left: 10px;
+    float: left;
 }
 tr:first-child{border: 1px solid black}
 body{
     background: lightgray;
+}
+.line3{
+    float:left
 }
