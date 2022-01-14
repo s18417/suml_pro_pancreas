@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["POST", "GET"])
 def hello_world():
-    filename = "best_gbc.sv"
+    filename = "best_rfc.sv"
     model = pickle.load(open(filename, 'rb'))
     dataF = open("dane.csv", "r")
     lines = dataF.readlines()
