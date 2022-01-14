@@ -1,3 +1,4 @@
-patient_cohort,sample_origin,age,plasma_CA19_9,creatinine,LYVE1,REG1B,TFF1,REG1A,diagnosis
-2, ESP, 89, 123, 123123, 123, 2131, 231, 123, pancreatic cancer
-2, BPTB, 72, 234, 234, 234, 234, 234, 234, pancreatic cancer
+age,gender,plasma_CA19_9,creatinine,LYVE1,REG1B,TFF1,REG1A,diagnosis
+
+40, male, 1, 1, 1, 1, 1, 1, benign hepatobiliary disease
+98, female, 2, 2, 2, 2, 2, 2, control

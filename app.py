@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=["POST", "GET"])
 def hello_world():
-    filename = "grid_imba8.sv"
+    filename = "best_gbc.sv"
     model = pickle.load(open(filename, 'rb'))
     dataF = open("dane.csv", "r")
     lines = dataF.readlines()
@@ -25,9 +25,9 @@ def hello_world():
 
     if request.method == "POST":
         data = [[
-            request.form["cohort"],
-            request.form["sample_origin"],
             request.form["age"],
+            request.form["cohort"],
+            # request.form["sample_origin"],
             request.form["plasma_CA19"],
             request.form["creatitine"],
             request.form["LYVE1"],
@@ -46,17 +46,22 @@ def hello_world():
         data += [
             res
         ]
-        print(data[0][1])
-        print(data)
-        if data[0][1] == "1":
-            data[0][1] = "BPTB"
-        elif data[0][1] == "2":
-            data[0][1] = "LIV"
-        elif data[0][1] == "3":
-            data[0][1] = "ESP"
-        else:
-            data[0][1] = "UCL"
-        print(data)
+        # print(data[0][1])
+        # print(data)
+        # if data[0][1] == "1":
+        #     data[0][1] = "BPTB"
+        # elif data[0][1] == "2":
+        #     data[0][1] = "LIV"
+        # elif data[0][1] == "3":
+        #     data[0][1] = "ESP"
+        # else:
+        #     data[0][1] = "UCL"
+        # print(data)
+        if data[0][1] == "0":
+            data[0][1] = "female"
+        elif data[0][1] == "1":
+            data[0][1] = "male"
+
         with open("dane.csv", "a") as dane:
             dane.write(data.__str__().replace("[", "").replace("]", "").replace("'", "") + "\n")
         return redirect(url_for("hello_world", lines=separated_lines))
