@@ -2,3 +2,5 @@ age,gender,plasma_CA19_9,creatinine,LYVE1,REG1B,TFF1,REG1A,diagnosis
 
 40, male, 1, 1, 1, 1, 1, 1, benign hepatobiliary disease
 98, female, 2, 2, 2, 2, 2, 2, control
+77, female, 1, 1, 1, 1, 1, 1, benign hepatobiliary disease
+78, female, 1, 1, 2, 3, 4, 5, benign hepatobiliary disease

@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 @app.route('/', methods=["POST", "GET"])
-def hello_world():
+def main_page():
     filename = "best_rfc.sv"
     model = pickle.load(open(filename, 'rb'))
     dataF = open("dane.csv", "r")
@@ -20,14 +20,11 @@ def hello_world():
     for line in lines:
         separated_lines.append(line.split(","))
         count += 1
-    # print(separated_lines)
-    # print(separated_lines[0])
 
     if request.method == "POST":
         data = [[
             request.form["age"],
             request.form["cohort"],
-            # request.form["sample_origin"],
             request.form["plasma_CA19"],
             request.form["creatitine"],
             request.form["LYVE1"],
@@ -46,28 +43,14 @@ def hello_world():
         data += [
             res
         ]
-        # print(data[0][1])
-        # print(data)
-        # if data[0][1] == "1":
-        #     data[0][1] = "BPTB"
-        # elif data[0][1] == "2":
-        #     data[0][1] = "LIV"
-        # elif data[0][1] == "3":
-        #     data[0][1] = "ESP"
-        # else:
-        #     data[0][1] = "UCL"
-        # print(data)
         if data[0][1] == "0":
             data[0][1] = "female"
         elif data[0][1] == "1":
             data[0][1] = "male"
-
         with open("dane.csv", "a") as dane:
             dane.write(data.__str__().replace("[", "").replace("]", "").replace("'", "") + "\n")
-        return redirect(url_for("hello_world", lines=separated_lines))
-        # return render_template("form.html",lines=separated_lines)
+        return redirect(url_for("main_page", lines=separated_lines))
     else:
-        # return redirect(url_for("hello_world", lines=separated_lines))
         return render_template("form.html", lines=separated_lines)
 
 
